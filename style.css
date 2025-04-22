@@ -1,4 +1,4 @@
-/* --- START OF FILE style.css (ENHANCED & FIXED) --- */
+/* --- START OF FILE style.css (ENHANCED & FIXED + IMAGE STYLES) --- */
 
 /* --- General Reset & Base Styles --- */
 * {
@@ -41,12 +41,12 @@ img {
 }
 
 .header-top {
-    display: flex; /* Quan trọng để xếp hàng ngang */
-    justify-content: space-between; /* Đẩy các phần tử ra xa nhau */
-    align-items: center; /* Căn giữa theo chiều dọc */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px 0;
-    max-width: 1200px; /* Giới hạn chiều rộng nội dung header */
-    margin: 0 auto; /* Căn giữa header */
+    max-width: 1200px;
+    margin: 0 auto;
     min-height: 60px;
 }
 
@@ -54,20 +54,19 @@ img {
     display: flex;
     align-items: center;
     gap: 15px;
-    flex-shrink: 0; /* Ngăn co lại khi không đủ chỗ */
+    flex-shrink: 0;
 }
 
 .center-section {
-    text-align: center; /* Căn giữa logo */
-    flex-grow: 1; /* Cho phép chiếm không gian thừa */
+    text-align: center;
+    flex-grow: 1;
 }
 
-/* Style cho logo */
 .site-logo {
-    max-height: 40px; /* Giới hạn chiều cao logo */
-    width: auto;      /* Chiều rộng tự động */
-    display: inline-block; /* Để không chiếm toàn bộ chiều rộng */
-    vertical-align: middle; /* Căn giữa với text/button nếu cần */
+    max-height: 40px;
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .menu-button, .subscribe-button, .login-button {
@@ -119,11 +118,11 @@ img {
 
 .main-nav ul {
     list-style: none;
-    display: flex; /* Quan trọng để menu nằm ngang */
+    display: flex;
     justify-content: center;
     padding: 10px 0;
     gap: 25px;
-    overflow-x: auto; /* Cho phép cuộn ngang nếu không đủ chỗ */
+    overflow-x: auto;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -168,9 +167,7 @@ img {
 
 
 /* --- Article Styles --- */
-.article-column {
-    /* No special styles needed for the container */
-}
+.article-column { }
 
 .article-headline {
     font-family: 'Merriweather', serif;
@@ -189,7 +186,7 @@ img {
     line-height: 1.5;
 }
 
-.main-image-container {
+.main-image-container { /* Style for the main image defined in HTML */
     margin-bottom: 1.5em;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
@@ -236,9 +233,9 @@ img {
     line-height: 1.4;
 }
 .publish-line {
-    margin-left: auto; /* Đẩy ngày publish sang phải */
+    margin-left: auto;
     white-space: nowrap;
-    padding-left: 10px; /* Thêm khoảng cách nhỏ nếu xuống dòng */
+    padding-left: 10px;
 }
 .article-meta span#article-author {
     font-weight: 700;
@@ -300,20 +297,95 @@ img {
     color: #555;
 }
 
+/* --- Article Image Styles (Images added via JS) --- */
+
+.article-body figure {
+    margin: 2em 0;
+    clear: both; /* Ensure figure takes up space correctly after floats */
+}
+.article-body figure img {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eee;
+}
+
+
+.article-body figcaption {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 0.8rem;
+    color: #555;
+    padding: 8px 5px 0 5px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+/* Layout Classes for Images */
+.article-body .image-layout-full-width {
+    width: 100%;
+    max-width: 100%;
+}
+.article-body .image-layout-full-width img {
+    width: 100%;
+}
+.article-body .image-layout-full-width figcaption {
+     text-align: right;
+}
+
+
+.article-body .image-layout-medium {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.article-body .image-layout-medium figcaption {
+     text-align: center;
+}
+
+.article-body .image-layout-float-right {
+    float: right;
+    max-width: 48%;
+    margin: 0.5em 0 1em 2em;
+}
+
+.article-body .image-layout-float-left {
+    float: left;
+    max-width: 48%;
+    margin: 0.5em 2em 1em 0;
+}
+
+/* Clearfix for elements potentially following floats */
+.article-body h2,
+.article-body p:not(:has(>em)), /* Don't clear conclusion para */
+.article-body ul,
+.article-body ol {
+    /* clear: both; */ /* Uncomment only if layout breaks after floats */
+}
+
+/* Responsive adjustments for floated images */
+@media (max-width: 600px) {
+    .article-body .image-layout-float-right,
+    .article-body .image-layout-float-left {
+        float: none;
+        max-width: 100%;
+        margin: 1.5em auto;
+    }
+    .article-body figcaption {
+        text-align: left !important; /* Force left align on small screens */
+    }
+}
+
 
 /* --- Sidebar Styles --- */
 .sidebar-column {
     background-color: #fdfdfd;
     padding-top: 20px;
     padding-bottom: 20px;
-    /* border và padding-left được đặt trong media query */
+    /* border-left and padding-left are in media query */
 }
 
 @media (min-width: 768px) {
     .sidebar-column {
          padding-top: 0;
          padding-bottom: 0;
-         /* border-left và padding-left đã có ở trên */
     }
 }
 
@@ -348,9 +420,7 @@ img {
     border: 1px solid #eee;
 }
 
-.sidebar-article-content {
-    /* Container cho text để flex hoạt động đúng */
-}
+.sidebar-article-content { }
 
 .sidebar-article-content h3 {
     font-family: 'Merriweather', serif;
@@ -409,38 +479,30 @@ img {
     .article-subheadline { font-size: 1.1rem; }
     .article-body { font-size: 1.05rem; }
 
-    /* Fix header wrap */
     .header-top {
         flex-wrap: wrap;
-        justify-content: space-between; /* Cố gắng giữ khoảng cách */
-        gap: 10px 0; /* Thêm gap dọc khi wrap */
+        justify-content: space-between;
+        gap: 10px 0;
      }
     .center-section {
-        order: -1; /* Logo lên đầu */
-        width: 100%; /* Chiếm hết chiều rộng */
-        margin-bottom: 10px; /* Khoảng cách dưới logo */
-        text-align: center; /* Đảm bảo logo căn giữa */
-        flex-grow: 0; /* Reset flex-grow */
+        order: -1;
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+        flex-grow: 0;
      }
-    .left-section {
-        order: 0; /* Reset order hoặc đặt là -2 để lên trước */
-     }
-    .right-section {
-        order: 0; /* Reset order */
-        margin-left: auto; /* Cố gắng đẩy sang phải */
-     }
+    .left-section { order: 0; }
+    .right-section { order: 0; margin-left: auto; }
 
     .main-nav ul { justify-content: flex-start; }
     .publish-line {
-        margin-left: 0; /* Reset margin khi xuống dòng */
-        width: 100%; /* Chiếm hết dòng */
-        margin-top: 5px; /* Thêm khoảng cách khi xuống dòng */
-        padding-left: 0; /* Reset padding */
-        text-align: left; /* Căn trái ngày */
+        margin-left: 0;
+        width: 100%;
+        margin-top: 5px;
+        padding-left: 0;
+        text-align: left;
     }
-    .article-meta {
-        gap: 5px 10px; /* Giảm gap khi wrap */
-    }
+    .article-meta { gap: 5px 10px; }
 }
 
 @media (max-width: 576px) {
@@ -455,9 +517,9 @@ img {
     .article-headline { font-size: 1.7rem; }
     .sidebar-thumbnail { width: 60px; height: 60px; }
      .right-section {
-        flex-grow: 1; /* Cho nút subscribe/login chiếm thêm không gian */
-        justify-content: flex-end; /* Căn phải các nút */
+        flex-grow: 1;
+        justify-content: flex-end;
      }
 }
 
-/* --- END OF FILE style.css (ENHANCED & FIXED) --- */
+/* --- END OF FILE style.css (ENHANCED & FIXED + IMAGE STYLES) --- */
