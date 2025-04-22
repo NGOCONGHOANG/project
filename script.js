@@ -1,7 +1,10 @@
-// --- START OF FILE script.js (UPDATED FOR IMAGES) ---
+// --- START OF FILE script.js (FETCHING NEW ARTICLE) ---
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('content.json')
+    // !!! IMPORTANT: Fetch the JSON file for the desired article !!!
+    fetch('content-spending.json') // <--- Fetches the NEW spending article content
+    // fetch('content.json') // <--- Change back to this to see the Moon Landing article
+    // !!! ------------------------------------------------------- !!!
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -17,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const articleBody = document.getElementById('article-body');
             if(articleBody) {
                 articleBody.innerHTML = `<p style="color: red; font-family: sans-serif;">Sorry, couldn't load the article content. Please try refreshing the page.</p>`;
-                 console.error("Failed to fetch or parse content.json. Status:", error.message);
+                 console.error("Failed to fetch or parse JSON. Status:", error.message);
             }
         });
 });
@@ -107,7 +110,7 @@ function createFigureElement(imageData) {
 }
 
 
-// --- Function to populate sidebar (unchanged) ---
+// --- Function to populate sidebar (using placeholder image) ---
 function populateSidebar(sidebarData) {
     const relatedContainer = document.getElementById('sidebar-related');
     if (relatedContainer && sidebarData.relatedArticles) {
@@ -151,4 +154,4 @@ function setTextContent(id, text) {
         element.textContent = text || '';
     }
 }
-// --- END OF FILE script.js (UPDATED FOR IMAGES) ---
+// --- END OF FILE script.js (FETCHING NEW ARTICLE) ---

@@ -41,12 +41,12 @@ img {
 }
 
 .header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; /* Quan trọng để xếp hàng ngang */
+    justify-content: space-between; /* Đẩy các phần tử ra xa nhau */
+    align-items: center; /* Căn giữa theo chiều dọc */
     padding: 10px 0;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 1200px; /* Giới hạn chiều rộng nội dung header */
+    margin: 0 auto; /* Căn giữa header */
     min-height: 60px;
 }
 
@@ -54,19 +54,20 @@ img {
     display: flex;
     align-items: center;
     gap: 15px;
-    flex-shrink: 0;
+    flex-shrink: 0; /* Ngăn co lại khi không đủ chỗ */
 }
 
 .center-section {
-    text-align: center;
-    flex-grow: 1;
+    text-align: center; /* Căn giữa logo */
+    flex-grow: 1; /* Cho phép chiếm không gian thừa */
 }
 
+/* Style cho logo */
 .site-logo {
-    max-height: 40px;
-    width: auto;
-    display: inline-block;
-    vertical-align: middle;
+    max-height: 40px; /* Giới hạn chiều cao logo */
+    width: auto;      /* Chiều rộng tự động */
+    display: inline-block; /* Để không chiếm toàn bộ chiều rộng */
+    vertical-align: middle; /* Căn giữa với text/button nếu cần */
 }
 
 .menu-button, .subscribe-button, .login-button {
@@ -118,11 +119,11 @@ img {
 
 .main-nav ul {
     list-style: none;
-    display: flex;
+    display: flex; /* Quan trọng để menu nằm ngang */
     justify-content: center;
     padding: 10px 0;
     gap: 25px;
-    overflow-x: auto;
+    overflow-x: auto; /* Cho phép cuộn ngang nếu không đủ chỗ */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -233,9 +234,9 @@ img {
     line-height: 1.4;
 }
 .publish-line {
-    margin-left: auto;
+    margin-left: auto; /* Đẩy ngày publish sang phải */
     white-space: nowrap;
-    padding-left: 10px;
+    padding-left: 10px; /* Thêm khoảng cách nhỏ nếu xuống dòng */
 }
 .article-meta span#article-author {
     font-weight: 700;
@@ -386,6 +387,7 @@ img {
     .sidebar-column {
          padding-top: 0;
          padding-bottom: 0;
+         /* border-left and padding-left are already set */
     }
 }
 
@@ -479,28 +481,29 @@ img {
     .article-subheadline { font-size: 1.1rem; }
     .article-body { font-size: 1.05rem; }
 
+    /* Fix header wrap */
     .header-top {
         flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 10px 0;
+        justify-content: space-between; /* Cố gắng giữ khoảng cách */
+        gap: 10px 0; /* Thêm gap dọc khi wrap */
      }
     .center-section {
-        order: -1;
-        width: 100%;
-        margin-bottom: 10px;
-        text-align: center;
-        flex-grow: 0;
+        order: -1; /* Logo lên đầu */
+        width: 100%; /* Chiếm hết chiều rộng */
+        margin-bottom: 10px; /* Khoảng cách dưới logo */
+        text-align: center; /* Đảm bảo logo căn giữa */
+        flex-grow: 0; /* Reset flex-grow */
      }
     .left-section { order: 0; }
     .right-section { order: 0; margin-left: auto; }
 
     .main-nav ul { justify-content: flex-start; }
     .publish-line {
-        margin-left: 0;
-        width: 100%;
-        margin-top: 5px;
-        padding-left: 0;
-        text-align: left;
+        margin-left: 0; /* Reset margin khi xuống dòng */
+        width: 100%; /* Chiếm hết dòng */
+        margin-top: 5px; /* Thêm khoảng cách khi xuống dòng */
+        padding-left: 0; /* Reset padding */
+        text-align: left; /* Căn trái ngày */
     }
     .article-meta { gap: 5px 10px; }
 }

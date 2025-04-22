@@ -1,0 +1,105 @@
+{
+    "article": {
+      "headline": "Level Up Tiết Kiệm, Không Chỉ Gear Khủng 🎮💸",
+      "subheadline": "Khi đam mê công nghệ đắt đỏ 'va chạm' với ngân sách gia đình. Làm sao để cân bằng giữa sở thích cá nhân và mục tiêu tài chính chung?",
+      "author": "FPT SAY HI GR4",
+      "publishDate": "April 22, 2025",
+      "mainImageUrl": "images/spending-stop-buying.jpg",
+      "mainImageCaption": "Lời nhắc nhở về việc chi tiêu có ý thức trở nên cần thiết trong nhiều gia đình.",
+      "sections": [
+        {
+          "type": "paragraph",
+          "text": "Anh yêu, em biết anh đam mê công nghệ đến nhường nào. Nhìn anh hào hứng 'build' chiếc PC mới, hay sung sướng 'unboxing' chiếc PS5 mới nhất, em cũng vui lây. Nhưng anh ơi, đôi khi niềm vui của anh lại là nỗi lo của em, của gia đình mình..."
+        },
+        {
+          "type": "image",
+          "src": "images/spending-couple-arguing.jpg",
+          "alt": "A couple having a tense discussion about finances at home.",
+          "caption": "Khác biệt trong quan điểm chi tiêu là một trong những nguyên nhân phổ biến gây căng thẳng.",
+          "layout": "medium"
+        },
+        {
+          "type": "paragraph",
+          "text": "Chiếc bàn phím cơ custom kia có giá bằng mấy tháng tiền bỉm sữa của con. Dàn PC gaming mới có thể dùng để trả tiền học cho bé năm sau. Em không nói anh phải từ bỏ hoàn toàn sở thích, nhưng liệu chúng ta có thể cân nhắc lại thứ tự ưu tiên không anh?"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Khi 'Muốn' Lấn Át 'Cần'"
+        },
+         {
+          "type": "image",
+          "src": "images/spending-receipts.jpg",
+          "alt": "A woman looking stressed while sorting through many receipts.",
+          "caption": "Những hóa đơn dài có thể là nguồn cơn của áp lực tài chính.",
+          "layout": "float-left"
+        },
+        {
+          "type": "paragraph",
+          "text": "Mỗi lần nhìn bảng sao kê thẻ tín dụng, tim em lại thắt lại. Tiền nhà, tiền điện nước, tiền ăn, tiền học của con... bao nhiêu khoản phải lo. Chúng ta còn ước mơ về một ngôi nhà rộng hơn, những chuyến du lịch cùng nhau, một quỹ dự phòng vững chắc cho tương lai. Nhưng những món đồ công nghệ vài chục triệu đồng kia đang dần 'ăn mòn' những mục tiêu đó."
+        },
+        {
+          "type": "paragraph",
+          "text": "Em biết anh làm việc vất vả, anh xứng đáng được tận hưởng. Nhưng sự tận hưởng đó có cần phải là những món đồ đắt nhất, mới nhất không? Hay chỉ đơn giản là thời gian chất lượng bên gia đình, những bữa cơm ấm cúng, những cuối tuần thư giãn không lo nghĩ về tiền bạc?"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Tìm Tiếng Nói Chung Trong Chi Tiêu"
+        },
+        {
+          "type": "image",
+          "src": "images/spending-stressed-mother.jpg",
+          "alt": "A stressed mother holding her baby.",
+          "caption": "Áp lực tài chính có thể ảnh hưởng trực tiếp đến hạnh phúc gia đình và việc chăm sóc con cái.",
+          "layout": "float-right"
+        },
+         {
+          "type": "paragraph",
+          "text": "Em nghĩ chúng ta cần ngồi lại, thẳng thắn nói chuyện về tài chính. Mình cùng nhau lập một ngân sách chi tiết, phân bổ rõ ràng các khoản 'cần' và khoản 'muốn'. Mình có thể đặt ra một 'quỹ sở thích' cho anh với ngân sách hợp lý mỗi tháng, để anh vẫn có thể theo đuổi đam mê mà không ảnh hưởng đến kế hoạch lớn."
+         },
+         {
+          "type": "list",
+          "items": [
+           "**Lập ngân sách chung:** Sử dụng ứng dụng hoặc bảng tính để theo dõi thu chi.",
+           "**Đặt mục tiêu tài chính rõ ràng:** Mua nhà, du lịch, quỹ khẩn cấp...",
+           "**Thỏa thuận về 'quỹ chi tiêu cá nhân':** Mỗi người có một khoản riêng để tự do chi tiêu.",
+           "**Quy tắc chờ đợi:** Với những món đồ đắt tiền, hãy chờ 24-48h trước khi quyết định mua.",
+           "**Tìm kiếm lựa chọn thay thế:** Có cần thiết phải là phiên bản mới nhất, đắt nhất không?"
+          ]
+         },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Cùng Nhau Xây Đắp Tương Lai"
+        },
+        {
+          "type": "paragraph",
+          "text": "Em không muốn tiền bạc trở thành rào cản giữa hai đứa mình. Em tin rằng khi chúng ta cùng nhìn về một hướng, cùng nhau cố gắng, mọi khó khăn đều có thể vượt qua. Hãy biến những 'level up' trong game thành những 'level up' thực sự cho cuộc sống gia đình mình, anh nhé."
+        },
+        {
+          "type": "image",
+          "src": "images/spending-couple-house.jpg",
+          "alt": "A happy couple holding keys in front of their new house.",
+          "caption": "Những mục tiêu lớn lao hơn có thể đạt được khi cả hai cùng đồng lòng tiết kiệm và vun đắp.",
+          "layout": "full-width"
+        },
+        {
+          "type": "conclusion",
+          "text": "Việc cân bằng giữa sở thích cá nhân và trách nhiệm tài chính gia đình đòi hỏi sự thấu hiểu, giao tiếp và thỏa hiệp từ cả hai phía. Nhưng phần thưởng là sự bình yên trong tâm hồn và một tương lai vững chắc, hạnh phúc."
+        }
+      ]
+    },
+    "sidebar": {
+      "relatedTitle": "Financial Advice",
+      "relatedArticles": [
+        {"title": "5 Money Mistakes Couples Make", "readTime": "5 MIN READ"},
+        {"title": "How to Talk About Money With Your Partner", "readTime": "6 MIN READ"}
+      ],
+      "opinionTitle": "Perspectives",
+      "opinionArticles": [
+        {"title": "The Invisible Pressure of 'Must-Haves'", "author": "Psychologist", "readTime": "4 MIN READ"},
+        {"title": "Where Does Financial Freedom Begin?", "author": "Financial Planner", "readTime": "7 MIN READ"}
+      ]
+    }
+  }
