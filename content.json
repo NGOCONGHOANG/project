@@ -2,9 +2,9 @@
   "article": {
     "headline": "The Moon Landing Hoax Theory 🌕🚀",
     "subheadline": "Decades after Apollo 11, the shadow of doubt lingers. Why do some believe humanity never reached the lunar surface?",
-    "author": "By [Tên của bạn hoặc tên giả định]",
-    "publishDate": "April 22, 2025", // Giữ nguyên ngày giả định như trong ảnh
-    "mainImageUrl": "images/moon-landing.jpg", // Đường dẫn tới ảnh chính của bạn
+    "author": "NGOCONGHOANG", // Thay bằng tên bạn nếu muốn
+    "publishDate": "April 22, 2025",
+    "mainImageUrl": "images/moon-landing.jpg", // Đảm bảo bạn có ảnh này trong thư mục images
     "mainImageCaption": "Astronaut Buzz Aldrin walks on the lunar surface near the leg of the lunar module during the Apollo 11 mission. Image: NASA",
     "sections": [
       {
@@ -58,7 +58,7 @@
       }
     ]
   },
-  "sidebar": { // Nội dung giả định cho cột bên phải
+  "sidebar": {
     "relatedTitle": "More On Space Exploration",
     "relatedArticles": [
       {"title": "Artemis Program Aims for Lunar Return", "readTime": "4 MIN READ"},

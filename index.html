@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Moon Landing Hoax Theory - NYT Style Demo</title>
+    <!-- Đảm bảo đường dẫn này đúng -->
     <link rel="stylesheet" href="style.css">
-    <!-- Link tới Google Fonts hoặc font bạn chọn -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
@@ -14,13 +14,11 @@
     <header class="nyt-header">
         <div class="header-top">
             <div class="left-section">
-                <button class="menu-button">☰</button> <!-- Nút menu đơn giản -->
+                <button class="menu-button">☰</button>
                 <span id="current-date">Tuesday, April 22, 2025</span>
             </div>
             <div class="center-section">
-                <!-- Có thể thêm logo NYT ở đây (chỉ dùng cho mục đích học tập) -->
-                <!-- <img src="images/nyt-logo.png" alt="New York Times Logo" class="nyt-logo"> -->
-                <h1 class="site-title">The New York Times</h1> <!-- Hoặc dùng thẻ H1 -->
+                <h1 class="site-title">The New York Times</h1>
             </div>
             <div class="right-section">
                 <button class="subscribe-button">SUBSCRIBE FOR $1/WEEK</button>
@@ -51,7 +49,8 @@
                 <p id="article-subheadline" class="article-subheadline"></p>
 
                 <figure class="main-image-container">
-                    <img id="article-image" src="" alt="Main article image">
+                    <!-- Ảnh sẽ được load bởi JS, alt text giúp người dùng biết ảnh về gì nếu chưa load kịp -->
+                    <img id="article-image" src="" alt="Main article image placeholder">
                     <figcaption id="article-image-caption"></figcaption>
                 </figure>
 
@@ -61,18 +60,16 @@
                 </div>
 
                 <div id="article-body" class="article-body">
-                    <!-- Nội dung bài báo sẽ được chèn vào đây bằng JavaScript -->
+                    <!-- Nội dung bài báo sẽ được chèn vào đây -->
+                    <!-- Thông báo lỗi sẽ hiển thị ở đây nếu JS không load được JSON -->
                 </div>
             </article>
         </main>
 
         <aside class="sidebar-column">
-            <div class="sidebar-section" id="sidebar-related">
-                 <!-- Nội dung sidebar sẽ được chèn vào đây -->
-            </div>
-             <div class="sidebar-section" id="sidebar-opinion">
-                 <!-- Nội dung sidebar sẽ được chèn vào đây -->
-            </div>
+             <!-- Phần sidebar sẽ được load bởi JS -->
+            <div class="sidebar-section" id="sidebar-related"></div>
+            <div class="sidebar-section" id="sidebar-opinion"></div>
         </aside>
     </div>
 
@@ -84,10 +81,10 @@
             <a href="#">Advertise</a>
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>
-            <!-- Thêm các link footer khác nếu muốn -->
         </div>
     </footer>
 
+    <!-- Đảm bảo đường dẫn này đúng và đặt ở cuối body -->
     <script src="script.js"></script>
 </body>
 </html>
