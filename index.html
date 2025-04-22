@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Moon Landing Hoax Theory - NYT Style Demo</title>
-    <!-- Đảm bảo đường dẫn này đúng -->
+    <!-- Thay đổi Title Trang -->
+    <title>FPT SAY HI</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Cân nhắc thêm các font weight khác nếu cần -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="nyt-header">
@@ -18,7 +19,8 @@
                 <span id="current-date">Tuesday, April 22, 2025</span>
             </div>
             <div class="center-section">
-                <h1 class="site-title">The New York Times</h1>
+                <!-- Thay H1 bằng logo -->
+                <img src="images/fpt-logo.png" alt="FPT SAY HI Logo" class="site-logo">
             </div>
             <div class="right-section">
                 <button class="subscribe-button">SUBSCRIBE FOR $1/WEEK</button>
@@ -49,25 +51,24 @@
                 <p id="article-subheadline" class="article-subheadline"></p>
 
                 <figure class="main-image-container">
-                    <!-- Ảnh sẽ được load bởi JS, alt text giúp người dùng biết ảnh về gì nếu chưa load kịp -->
-                    <img id="article-image" src="" alt="Main article image placeholder">
+                    <img id="article-image" src="" alt="Main article image">
                     <figcaption id="article-image-caption"></figcaption>
                 </figure>
 
+                <!-- Cập nhật khu vực meta tác giả -->
                 <div class="article-meta">
-                    By <span id="article-author"></span><br>
-                    Published <span id="article-publish-date"></span>
+                    <img id="author-logo" class="author-logo" src="images/fpt-group-logo.png" alt="Author logo"> <!-- Thêm logo tác giả -->
+                    <span class="author-line">By <span id="article-author">FPT SAY HI GR4</span></span> <!-- Tên tác giả cố định -->
+                    <span class="publish-line">Published <span id="article-publish-date"></span></span>
                 </div>
 
                 <div id="article-body" class="article-body">
-                    <!-- Nội dung bài báo sẽ được chèn vào đây -->
-                    <!-- Thông báo lỗi sẽ hiển thị ở đây nếu JS không load được JSON -->
+                    <!-- Nội dung bài báo -->
                 </div>
             </article>
         </main>
 
         <aside class="sidebar-column">
-             <!-- Phần sidebar sẽ được load bởi JS -->
             <div class="sidebar-section" id="sidebar-related"></div>
             <div class="sidebar-section" id="sidebar-opinion"></div>
         </aside>
@@ -75,7 +76,8 @@
 
     <footer class="nyt-footer">
         <div class="footer-content">
-            <a href="#">© 2025 The New York Times Company</a>
+            <!-- Cập nhật tên công ty -->
+            <a href="#">© 2025 FPT SAY HI</a>
             <a href="#">Contact Us</a>
             <a href="#">Work with us</a>
             <a href="#">Advertise</a>
@@ -84,7 +86,6 @@
         </div>
     </footer>
 
-    <!-- Đảm bảo đường dẫn này đúng và đặt ở cuối body -->
     <script src="script.js"></script>
 </body>
 </html>
