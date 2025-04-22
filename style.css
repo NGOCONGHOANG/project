@@ -1,91 +1,463 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Thay đổi Title Trang -->
-    <title>FPT SAY HI</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Cân nhắc thêm các font weight khác nếu cần -->
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header class="nyt-header">
-        <div class="header-top">
-            <div class="left-section">
-                <button class="menu-button">☰</button>
-                <span id="current-date">Tuesday, April 22, 2025</span>
-            </div>
-            <div class="center-section">
-                <!-- Thay H1 bằng logo -->
-                <img src="images/fpt-logo.png" alt="FPT SAY HI Logo" class="site-logo">
-            </div>
-            <div class="right-section">
-                <button class="subscribe-button">SUBSCRIBE FOR $1/WEEK</button>
-                <button class="login-button">LOG IN</button>
-            </div>
-        </div>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="#">U.S.</a></li>
-                <li><a href="#">World</a></li>
-                <li><a href="#">Business</a></li>
-                <li><a href="#">Arts</a></li>
-                <li><a href="#">Lifestyle</a></li>
-                <li><a href="#">Opinion</a></li>
-                <li><a href="#">Audio</a></li>
-                <li><a href="#">Games</a></li>
-                <li><a href="#">Cooking</a></li>
-                <li><a href="#">Wirecutter</a></li>
-                <li><a href="#">The Athletic</a></li>
-            </ul>
-        </nav>
-    </header>
+/* --- START OF FILE style.css (ENHANCED & FIXED) --- */
 
-    <div class="main-content-area">
-        <main class="article-column">
-            <article>
-                <h1 id="article-headline" class="article-headline"></h1>
-                <p id="article-subheadline" class="article-subheadline"></p>
+/* --- General Reset & Base Styles --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-                <figure class="main-image-container">
-                    <img id="article-image" src="" alt="Main article image">
-                    <figcaption id="article-image-caption"></figcaption>
-                </figure>
+body {
+    font-family: 'Merriweather', serif;
+    line-height: 1.7;
+    color: #333;
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
-                <!-- Cập nhật khu vực meta tác giả -->
-                <div class="article-meta">
-                    <img id="author-logo" class="author-logo" src="images/fpt-group-logo.png" alt="Author logo"> <!-- Thêm logo tác giả -->
-                    <span class="author-line">By <span id="article-author">FPT SAY HI GR4</span></span> <!-- Tên tác giả cố định -->
-                    <span class="publish-line">Published <span id="article-publish-date"></span></span>
-                </div>
+a {
+    color: #4a88c7;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
 
-                <div id="article-body" class="article-body">
-                    <!-- Nội dung bài báo -->
-                </div>
-            </article>
-        </main>
+a:hover {
+    color: #326891;
+    text-decoration: underline;
+}
 
-        <aside class="sidebar-column">
-            <div class="sidebar-section" id="sidebar-related"></div>
-            <div class="sidebar-section" id="sidebar-opinion"></div>
-        </aside>
-    </div>
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
 
-    <footer class="nyt-footer">
-        <div class="footer-content">
-            <!-- Cập nhật tên công ty -->
-            <a href="#">© 2025 FPT SAY HI</a>
-            <a href="#">Contact Us</a>
-            <a href="#">Work with us</a>
-            <a href="#">Advertise</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-        </div>
-    </footer>
+/* --- Header Styles --- */
+.nyt-header {
+    border-bottom: 1px solid #e2e2e2;
+    padding: 0 20px;
+    background-color: #fff;
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+.header-top {
+    display: flex; /* Quan trọng để xếp hàng ngang */
+    justify-content: space-between; /* Đẩy các phần tử ra xa nhau */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    padding: 10px 0;
+    max-width: 1200px; /* Giới hạn chiều rộng nội dung header */
+    margin: 0 auto; /* Căn giữa header */
+    min-height: 60px;
+}
+
+.left-section, .right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0; /* Ngăn co lại khi không đủ chỗ */
+}
+
+.center-section {
+    text-align: center; /* Căn giữa logo */
+    flex-grow: 1; /* Cho phép chiếm không gian thừa */
+}
+
+/* Style cho logo */
+.site-logo {
+    max-height: 40px; /* Giới hạn chiều cao logo */
+    width: auto;      /* Chiều rộng tự động */
+    display: inline-block; /* Để không chiếm toàn bộ chiều rộng */
+    vertical-align: middle; /* Căn giữa với text/button nếu cần */
+}
+
+.menu-button, .subscribe-button, .login-button {
+    font-family: 'Libre Franklin', sans-serif;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 8px 12px;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.menu-button {
+    font-size: 1.5rem;
+    padding: 5px;
+}
+
+.subscribe-button {
+    background-color: #4a88c7;
+    color: white;
+    border-radius: 3px;
+}
+.subscribe-button:hover {
+    background-color: #326891;
+}
+
+.login-button {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+.login-button:hover {
+     background-color: #f5f5f5;
+}
+
+
+#current-date {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 0.8rem;
+    color: #666;
+    white-space: nowrap;
+}
+
+.main-nav {
+    border-bottom: 1px solid #e2e2e2;
+    background-color: #f9f9f9;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex; /* Quan trọng để menu nằm ngang */
+    justify-content: center;
+    padding: 10px 0;
+    gap: 25px;
+    overflow-x: auto; /* Cho phép cuộn ngang nếu không đủ chỗ */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-nav a {
+    font-family: 'Libre Franklin', sans-serif;
+    text-decoration: none;
+    color: #333;
+    font-weight: 700;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+.main-nav a:hover {
+    color: #4a88c7;
+    border-bottom-color: #4a88c7;
+    text-decoration: none;
+}
+
+/* --- Main Content Area --- */
+.main-content-area {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+@media (min-width: 768px) {
+    .main-content-area {
+        grid-template-columns: 2fr 1fr;
+        gap: 50px;
+    }
+    .sidebar-column {
+        border-left: 1px solid #e9e9e9;
+        padding-left: 50px;
+    }
+}
+
+
+/* --- Article Styles --- */
+.article-column {
+    /* No special styles needed for the container */
+}
+
+.article-headline {
+    font-family: 'Merriweather', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.6em;
+    color: #121212;
+}
+
+.article-subheadline {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 1.3rem;
+    color: #555;
+    margin-bottom: 1.5em;
+    line-height: 1.5;
+}
+
+.main-image-container {
+    margin-bottom: 1.5em;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.main-image-container img {
+     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+
+.main-image-container figcaption {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 0.75rem;
+    color: #777;
+    padding-top: 8px;
+    text-align: right;
+}
+
+/* Style cho khu vực meta tác giả */
+.article-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 0.8rem;
+    color: #555;
+    margin-bottom: 2.5em;
+    border-top: 1px solid #e2e2e2;
+    border-bottom: 1px solid #e2e2e2;
+    padding: 12px 0;
+    flex-wrap: wrap;
+}
+
+.author-logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.author-line, .publish-line {
+    line-height: 1.4;
+}
+.publish-line {
+    margin-left: auto; /* Đẩy ngày publish sang phải */
+    white-space: nowrap;
+    padding-left: 10px; /* Thêm khoảng cách nhỏ nếu xuống dòng */
+}
+.article-meta span#article-author {
+    font-weight: 700;
+    color: #333;
+}
+
+.article-body {
+    font-family: 'Merriweather', serif;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #222;
+}
+
+.article-body h2 {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    line-height: 1.3;
+    color: #121212;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.3em;
+}
+
+.article-body p {
+    margin-bottom: 1.6em;
+}
+
+.article-body ul {
+    list-style: square;
+    margin-left: 20px;
+    margin-bottom: 1.6em;
+    padding-left: 15px;
+}
+
+.article-body li {
+    margin-bottom: 0.9em;
+    padding-left: 5px;
+}
+
+.article-body strong {
+     font-weight: 700;
+     color: #000;
+}
+
+.article-body em {
+     font-style: italic;
+     color: #444;
+}
+
+/* Style cho phần conclusion */
+.article-body p em {
+    display: block;
+    border-top: 2px solid #ddd;
+    padding-top: 1.5em;
+    margin-top: 2.5em;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+
+/* --- Sidebar Styles --- */
+.sidebar-column {
+    background-color: #fdfdfd;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* border và padding-left được đặt trong media query */
+}
+
+@media (min-width: 768px) {
+    .sidebar-column {
+         padding-top: 0;
+         padding-bottom: 0;
+         /* border-left và padding-left đã có ở trên */
+    }
+}
+
+.sidebar-section {
+    margin-bottom: 35px;
+}
+
+.sidebar-section h2 {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    border-bottom: 2px solid #4a88c7;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #333;
+}
+
+.sidebar-article {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.sidebar-thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 1px solid #eee;
+}
+
+.sidebar-article-content {
+    /* Container cho text để flex hoạt động đúng */
+}
+
+.sidebar-article-content h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 5px;
+}
+.sidebar-article-content h3 a {
+    color: #222;
+}
+.sidebar-article-content h3 a:hover {
+    color: #4a88c7;
+}
+
+
+.sidebar-article-content .meta {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 0.7rem;
+    color: #777;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+
+/* --- Footer Styles --- */
+.nyt-footer {
+    border-top: 1px solid #dcdcdc;
+    padding: 30px 20px;
+    margin-top: 50px;
+    background-color: #f0f0f0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px 25px;
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 0.8rem;
+}
+
+.footer-content a {
+    color: #555;
+}
+.footer-content a:hover {
+    color: #111;
+}
+
+
+/* --- Responsive Design Adjustments --- */
+@media (max-width: 767px) {
+    .article-headline { font-size: 2rem; }
+    .article-subheadline { font-size: 1.1rem; }
+    .article-body { font-size: 1.05rem; }
+
+    /* Fix header wrap */
+    .header-top {
+        flex-wrap: wrap;
+        justify-content: space-between; /* Cố gắng giữ khoảng cách */
+        gap: 10px 0; /* Thêm gap dọc khi wrap */
+     }
+    .center-section {
+        order: -1; /* Logo lên đầu */
+        width: 100%; /* Chiếm hết chiều rộng */
+        margin-bottom: 10px; /* Khoảng cách dưới logo */
+        text-align: center; /* Đảm bảo logo căn giữa */
+        flex-grow: 0; /* Reset flex-grow */
+     }
+    .left-section {
+        order: 0; /* Reset order hoặc đặt là -2 để lên trước */
+     }
+    .right-section {
+        order: 0; /* Reset order */
+        margin-left: auto; /* Cố gắng đẩy sang phải */
+     }
+
+    .main-nav ul { justify-content: flex-start; }
+    .publish-line {
+        margin-left: 0; /* Reset margin khi xuống dòng */
+        width: 100%; /* Chiếm hết dòng */
+        margin-top: 5px; /* Thêm khoảng cách khi xuống dòng */
+        padding-left: 0; /* Reset padding */
+        text-align: left; /* Căn trái ngày */
+    }
+    .article-meta {
+        gap: 5px 10px; /* Giảm gap khi wrap */
+    }
+}
+
+@media (max-width: 576px) {
+    .nyt-header, .main-content-area, .nyt-footer {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .subscribe-button, .login-button {
+        font-size: 0.7rem;
+        padding: 6px 8px;
+    }
+    .article-headline { font-size: 1.7rem; }
+    .sidebar-thumbnail { width: 60px; height: 60px; }
+     .right-section {
+        flex-grow: 1; /* Cho nút subscribe/login chiếm thêm không gian */
+        justify-content: flex-end; /* Căn phải các nút */
+     }
+}
+
+/* --- END OF FILE style.css (ENHANCED & FIXED) --- */

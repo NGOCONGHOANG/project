@@ -19,7 +19,7 @@
                 <span id="current-date">Tuesday, April 22, 2025</span>
             </div>
             <div class="center-section">
-                <!-- Thay H1 bằng logo -->
+                <!-- Chỉ có thẻ IMG logo ở đây -->
                 <img src="images/fpt-logo.png" alt="FPT SAY HI Logo" class="site-logo">
             </div>
             <div class="right-section">
@@ -57,18 +57,20 @@
 
                 <!-- Cập nhật khu vực meta tác giả -->
                 <div class="article-meta">
-                    <img id="author-logo" class="author-logo" src="images/fpt-group-logo.png" alt="Author logo"> <!-- Thêm logo tác giả -->
-                    <span class="author-line">By <span id="article-author">FPT SAY HI GR4</span></span> <!-- Tên tác giả cố định -->
+                    <!-- Đảm bảo bạn có ảnh này hoặc xóa thẻ img nếu không có -->
+                    <img id="author-logo" class="author-logo" src="images/fpt-group-logo.png" alt="Author logo">
+                    <span class="author-line">By <span id="article-author">FPT SAY HI GR4</span></span>
                     <span class="publish-line">Published <span id="article-publish-date"></span></span>
                 </div>
 
                 <div id="article-body" class="article-body">
-                    <!-- Nội dung bài báo -->
+                    <!-- Nội dung bài báo sẽ được chèn bởi script.js -->
                 </div>
             </article>
         </main>
 
         <aside class="sidebar-column">
+             <!-- Sidebar sẽ được chèn bởi script.js -->
             <div class="sidebar-section" id="sidebar-related"></div>
             <div class="sidebar-section" id="sidebar-opinion"></div>
         </aside>
@@ -86,6 +88,7 @@
         </div>
     </footer>
 
+    <!-- Đảm bảo file script.js được liên kết đúng -->
     <script src="script.js"></script>
 </body>
 </html>
