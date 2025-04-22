@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Moon Landing Hoax Theory - NYT Style Demo</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Link tới Google Fonts hoặc font bạn chọn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="nyt-header">
+        <div class="header-top">
+            <div class="left-section">
+                <button class="menu-button">☰</button> <!-- Nút menu đơn giản -->
+                <span id="current-date">Tuesday, April 22, 2025</span>
+            </div>
+            <div class="center-section">
+                <!-- Có thể thêm logo NYT ở đây (chỉ dùng cho mục đích học tập) -->
+                <!-- <img src="images/nyt-logo.png" alt="New York Times Logo" class="nyt-logo"> -->
+                <h1 class="site-title">The New York Times</h1> <!-- Hoặc dùng thẻ H1 -->
+            </div>
+            <div class="right-section">
+                <button class="subscribe-button">SUBSCRIBE FOR $1/WEEK</button>
+                <button class="login-button">LOG IN</button>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">U.S.</a></li>
+                <li><a href="#">World</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="#">Arts</a></li>
+                <li><a href="#">Lifestyle</a></li>
+                <li><a href="#">Opinion</a></li>
+                <li><a href="#">Audio</a></li>
+                <li><a href="#">Games</a></li>
+                <li><a href="#">Cooking</a></li>
+                <li><a href="#">Wirecutter</a></li>
+                <li><a href="#">The Athletic</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-content-area">
+        <main class="article-column">
+            <article>
+                <h1 id="article-headline" class="article-headline"></h1>
+                <p id="article-subheadline" class="article-subheadline"></p>
+
+                <figure class="main-image-container">
+                    <img id="article-image" src="" alt="Main article image">
+                    <figcaption id="article-image-caption"></figcaption>
+                </figure>
+
+                <div class="article-meta">
+                    By <span id="article-author"></span><br>
+                    Published <span id="article-publish-date"></span>
+                </div>
+
+                <div id="article-body" class="article-body">
+                    <!-- Nội dung bài báo sẽ được chèn vào đây bằng JavaScript -->
+                </div>
+            </article>
+        </main>
+
+        <aside class="sidebar-column">
+            <div class="sidebar-section" id="sidebar-related">
+                 <!-- Nội dung sidebar sẽ được chèn vào đây -->
+            </div>
+             <div class="sidebar-section" id="sidebar-opinion">
+                 <!-- Nội dung sidebar sẽ được chèn vào đây -->
+            </div>
+        </aside>
+    </div>
+
+    <footer class="nyt-footer">
+        <div class="footer-content">
+            <a href="#">© 2025 The New York Times Company</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Work with us</a>
+            <a href="#">Advertise</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <!-- Thêm các link footer khác nếu muốn -->
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

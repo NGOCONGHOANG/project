@@ -1,0 +1,73 @@
+{
+  "article": {
+    "headline": "The Moon Landing Hoax Theory 🌕🚀",
+    "subheadline": "Decades after Apollo 11, the shadow of doubt lingers. Why do some believe humanity never reached the lunar surface?",
+    "author": "By [Tên của bạn hoặc tên giả định]",
+    "publishDate": "April 22, 2025", // Giữ nguyên ngày giả định như trong ảnh
+    "mainImageUrl": "images/moon-landing.jpg", // Đường dẫn tới ảnh chính của bạn
+    "mainImageCaption": "Astronaut Buzz Aldrin walks on the lunar surface near the leg of the lunar module during the Apollo 11 mission. Image: NASA",
+    "sections": [
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Why Do Some People Believe the Moon Landing Was Fake?"
+      },
+      {
+        "type": "paragraph",
+        "text": "The belief often stems from a deep-seated mistrust of government, the sheer audacity of the achievement during the Cold War space race, and perceived anomalies in the photographic and video evidence provided by NASA. For some, the idea of such a monumental event being staged seems more plausible than the incredible feat itself."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "What 'Evidence' Is Often Presented for This Theory?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Proponents of the hoax theory point to several key pieces of 'evidence', though each has been thoroughly debunked:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "**The Waving Flag:** How could the American flag ripple in the vacuum of space? (Answer: It was mounted on a telescopic pole with a horizontal bar to make it look fully extended, and wrinkles from being folded caused the ripple effect).",
+          "**Absence of Stars:** Why are there no stars visible in the lunar sky photos? (Answer: The lunar surface was brightly lit by the sun. Camera exposures were short and apertures small to avoid overexposing the landscape and astronauts, making faint objects like stars invisible).",
+          "**Identical Backgrounds:** Some photos appear to have identical backgrounds despite being taken miles apart. (Answer: On the airless moon, distant objects appear much clearer and closer than on Earth. What seem like nearby hills are actually mountains miles away, so perspective changes little over short distances).",
+          "**The Van Allen Radiation Belts:** How did astronauts survive the deadly radiation? (Answer: NASA routed Apollo missions through areas of lower intensity and the spacecraft's shielding provided sufficient protection for the relatively short transit time)."
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "How Has NASA Debunked These Claims?"
+      },
+      {
+        "type": "paragraph",
+        "text": "NASA, along with independent scientists and photographic experts worldwide, has systematically addressed every claim. Evidence includes:\n- Thousands of photographs and hours of video footage.\n- Physical samples: 382 kilograms (842 pounds) of moon rocks brought back, studied by scientists globally, confirming their extraterrestrial origin.\n- Independent verification: Lunar Reconnaissance Orbiter (LRO) launched in 2009 has photographed the Apollo landing sites, showing leftover equipment and astronaut tracks.\n- Third-party tracking: The Apollo missions were tracked by independent observatories around the world."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "What Would Have Been Required to Fake Such an Event?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Faking the moon landing would have been arguably more complex than actually going. It would have required:\n- Unprecedented secrecy involving an estimated 400,000 people who worked on the Apollo program.\n- Technology to convincingly fake zero-gravity effects and lunar lighting conditions, which arguably didn't exist in the 1960s.\n- Fooling thousands of independent scientists and rival nations (like the Soviet Union) who were closely monitoring the missions.\n- Maintaining the conspiracy flawlessly for over 50 years without a single credible leak."
+      },
+      {
+        "type": "conclusion",
+        "text": "While the moon landing hoax theory persists in popular culture, the overwhelming scientific evidence confirms that humans did indeed walk on the moon, marking one of humanity's greatest achievements."
+      }
+    ]
+  },
+  "sidebar": { // Nội dung giả định cho cột bên phải
+    "relatedTitle": "More On Space Exploration",
+    "relatedArticles": [
+      {"title": "Artemis Program Aims for Lunar Return", "readTime": "4 MIN READ"},
+      {"title": "The Search for Water on Mars", "readTime": "6 MIN READ"}
+    ],
+    "opinionTitle": "Opinion",
+    "opinionArticles": [
+      {"title": "Why We Must Keep Exploring", "author": "Op-Ed Contributor", "readTime": "5 MIN READ"},
+      {"title": "The Ethics of Space Colonization", "author": "Jane Doe", "readTime": "7 MIN READ"}
+    ]
+  }
+}
