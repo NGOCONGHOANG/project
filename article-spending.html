@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!-- Title will be set dynamically if needed, or set manually -->
     <title>FPT SAY HI - Spending Habits</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
-<!-- IMPORTANT: Add data attribute pointing to the correct content file -->
 <body data-content-file="content-spending.json">
     <header class="nyt-header">
         <div class="header-top">
             <div class="left-section">
-                 <!-- Link back to homepage -->
                  <a href="index.html" class="menu-button" aria-label="Back to homepage">←</a>
                 <span id="current-date">Tuesday, April 22, 2025</span>
             </div>
             <div class="center-section">
-                <!-- Site Logo -->
                  <a href="index.html"><img src="images/fpt-logo.png" alt="FPT SAY HI Logo" class="site-logo"></a>
             </div>
             <div class="right-section">
@@ -50,27 +46,19 @@
             <article>
                 <h1 id="article-headline" class="article-headline"></h1>
                 <p id="article-subheadline" class="article-subheadline"></p>
-
                 <figure class="main-image-container">
                     <img id="article-image" src="" alt="Main article image">
                     <figcaption id="article-image-caption"></figcaption>
                 </figure>
-
-                <!-- Article Meta Data -->
                 <div class="article-meta">
                     <img id="author-logo" class="author-logo" src="images/fpt-group-logo.png" alt="Author logo">
                     <span class="author-line">By <span id="article-author">FPT SAY HI GR4</span></span>
                     <span class="publish-line">Published <span id="article-publish-date"></span></span>
                 </div>
-
-                <div id="article-body" class="article-body">
-                    <!-- Article content will be loaded here by script.js -->
-                </div>
+                <div id="article-body" class="article-body"></div>
             </article>
         </main>
-
         <aside class="sidebar-column">
-             <!-- Sidebar content will be loaded here by script.js -->
             <div class="sidebar-section" id="sidebar-related"></div>
             <div class="sidebar-section" id="sidebar-opinion"></div>
         </aside>
@@ -86,8 +74,6 @@
             <a href="#">Terms of Service</a>
         </div>
     </footer>
-
-     <!-- Link to the MODIFIED script.js for article pages -->
     <script src="script.js"></script>
 </body>
 </html>

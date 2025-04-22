@@ -1,676 +1,132 @@
-/* --- START OF FILE style.css (FINAL VERSION) --- */
+/* --- START OF FILE style.css (FINAL + EFFECTS) --- */
 
 /* --- General Reset & Base Styles --- */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: 'Merriweather', serif;
-    line-height: 1.7;
-    color: #333;
-    background-color: #ffffff;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-    color: #4a88c7;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-a:hover {
-    color: #326891;
-    text-decoration: underline;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Merriweather', serif; line-height: 1.7; color: #333; background-color: #ffffff; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+a { color: #4a88c7; text-decoration: none; transition: color 0.2s ease; }
+a:hover { color: #326891; text-decoration: underline; }
+img { max-width: 100%; height: auto; display: block; }
 
 /* --- Header Styles --- */
-.nyt-header {
-    border-bottom: 1px solid #e2e2e2;
-    padding: 0 20px;
-    background-color: #fff;
-}
+.nyt-header { border-bottom: 1px solid #e2e2e2; padding: 0 20px; background-color: #fff; }
+.header-top { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; max-width: 1200px; margin: 0 auto; min-height: 60px; }
+.left-section, .right-section { display: flex; align-items: center; gap: 15px; flex-shrink: 0; }
+.left-section > a.menu-button { font-size: 1.5rem; padding: 5px; text-decoration: none; color: #333; border: none; background: none; cursor: pointer; }
+.left-section > a.menu-button:hover { color: #4a88c7; }
+.center-section { text-align: center; flex-grow: 1; }
+.site-logo { max-height: 40px; width: auto; display: inline-block; vertical-align: middle; }
+.center-section a:hover { text-decoration: none; }
+.menu-button, .subscribe-button, .login-button, .left-section > a.menu-button { font-family: 'Libre Franklin', sans-serif; background: none; border: none; cursor: pointer; font-size: 0.8rem; font-weight: 700; padding: 8px 12px; white-space: nowrap; transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 0.2s ease, color 0.2s ease; }
+.menu-button { font-size: 1.5rem; padding: 5px; } /* Hamburger */
+.subscribe-button { background-color: #4a88c7; color: white; border-radius: 3px; }
+.login-button { border: 1px solid #ccc; border-radius: 3px; }
+.subscribe-button:hover, .login-button:hover, .menu-button:hover, .left-section > a.menu-button:hover { transform: scale(1.05); }
+.login-button:hover { background-color: #f5f5f5; }
+#current-date { font-family: 'Libre Franklin', sans-serif; font-size: 0.8rem; color: #666; white-space: nowrap; }
+.main-nav { border-bottom: 1px solid #e2e2e2; background-color: #f9f9f9; }
+.main-nav ul { list-style: none; display: flex; justify-content: center; padding: 10px 0; gap: 25px; overflow-x: auto; max-width: 1200px; margin: 0 auto; }
+.main-nav a { font-family: 'Libre Franklin', sans-serif; text-decoration: none; color: #333; font-weight: 700; font-size: 0.9rem; white-space: nowrap; padding-bottom: 5px; border-bottom: 2px solid transparent; transition: border-color 0.2s ease, color 0.2s ease; }
+.main-nav a:hover { color: #4a88c7; border-bottom-color: #4a88c7; text-decoration: none; }
 
-.header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    max-width: 1200px;
-    margin: 0 auto;
-    min-height: 60px;
-}
-
-.left-section, .right-section {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    flex-shrink: 0;
-}
-/* Make back button slightly different */
-.left-section > a.menu-button {
-    font-size: 1.5rem;
-    padding: 5px;
-    text-decoration: none;
-    color: #333;
-    border: none;
-    background: none;
-    cursor: pointer;
-}
-.left-section > a.menu-button:hover {
-     color: #4a88c7;
-}
-
-
-.center-section {
-    text-align: center;
-    flex-grow: 1;
-}
-
-.site-logo {
-    max-height: 40px;
-    width: auto;
-    display: inline-block;
-    vertical-align: middle;
-}
-/* Ensure logo link has no underline */
-.center-section a:hover {
-    text-decoration: none;
-}
-
-
-.menu-button, .subscribe-button, .login-button {
-    font-family: 'Libre Franklin', sans-serif;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-weight: 700;
-    padding: 8px 12px;
-    white-space: nowrap;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.menu-button { /* Style for the hamburger menu icon */
-    font-size: 1.5rem;
-    padding: 5px;
-}
-
-.subscribe-button {
-    background-color: #4a88c7;
-    color: white;
-    border-radius: 3px;
-}
-.subscribe-button:hover {
-    background-color: #326891;
-}
-
-.login-button {
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-.login-button:hover {
-     background-color: #f5f5f5;
-}
-
-
-#current-date {
-    font-family: 'Libre Franklin', sans-serif;
-    font-size: 0.8rem;
-    color: #666;
-    white-space: nowrap;
-}
-
-.main-nav {
-    border-bottom: 1px solid #e2e2e2;
-    background-color: #f9f9f9;
-}
-
-.main-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-    gap: 25px;
-    overflow-x: auto;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.main-nav a {
-    font-family: 'Libre Franklin', sans-serif;
-    text-decoration: none;
-    color: #333;
-    font-weight: 700;
-    font-size: 0.9rem;
-    white-space: nowrap;
-    padding-bottom: 5px;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.2s ease, color 0.2s ease;
-}
-.main-nav a:hover {
-    color: #4a88c7;
-    border-bottom-color: #4a88c7;
-    text-decoration: none;
-}
-
-/* --- Main Content Area --- */
-.main-content-area {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 30px auto;
-    padding: 0 20px;
-}
-
-@media (min-width: 768px) {
-    .main-content-area {
-        grid-template-columns: 2fr 1fr; /* Default for article pages */
-        gap: 50px;
-    }
-     .main-content-area.homepage { /* Override for homepage if needed */
-         grid-template-columns: 2fr 1fr; /* Keep sidebar for homepage too */
-     }
-
-    .sidebar-column {
-        border-left: 1px solid #e9e9e9;
-        padding-left: 50px;
-    }
-}
-
+/* --- Main Content Area & Fade-in --- */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.main-content-area { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 1200px; margin: 30px auto; padding: 0 20px; animation: fadeIn 0.6s ease-out forwards; }
+@media (min-width: 768px) { .main-content-area { grid-template-columns: 2fr 1fr; gap: 50px; } .main-content-area.homepage { grid-template-columns: 2fr 1fr; } .sidebar-column { border-left: 1px solid #e9e9e9; padding-left: 50px; } }
 
 /* --- Article Page Styles --- */
 .article-column { }
+.article-headline { font-family: 'Merriweather', serif; font-size: 2.6rem; font-weight: 700; line-height: 1.2; margin-bottom: 0.6em; color: #121212; }
+.article-subheadline { font-family: 'Libre Franklin', sans-serif; font-size: 1.3rem; color: #555; margin-bottom: 1.5em; line-height: 1.5; }
+.main-image-container { margin-bottom: 1.5em; border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 10px 0; }
+.main-image-container img { box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
+.main-image-container figcaption { font-family: 'Libre Franklin', sans-serif; font-size: 0.75rem; color: #777; padding-top: 8px; text-align: right; }
+.article-meta { display: flex; align-items: center; gap: 10px; font-family: 'Libre Franklin', sans-serif; font-size: 0.8rem; color: #555; margin-bottom: 2.5em; border-top: 1px solid #e2e2e2; border-bottom: 1px solid #e2e2e2; padding: 12px 0; flex-wrap: wrap; }
+.author-logo { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; flex-shrink: 0; background-color: #eee; }
+.author-line, .publish-line { line-height: 1.4; }
+.publish-line { margin-left: auto; white-space: nowrap; padding-left: 10px; }
+.article-meta span#article-author { font-weight: 700; color: #333; }
+.article-body { font-family: 'Merriweather', serif; font-size: 1.15rem; line-height: 1.8; color: #222; }
+.article-body h2 { font-family: 'Libre Franklin', sans-serif; font-size: 1.6rem; font-weight: 700; margin-top: 2em; margin-bottom: 1em; line-height: 1.3; color: #121212; border-bottom: 1px solid #eee; padding-bottom: 0.3em; }
+.article-body p { margin-bottom: 1.6em; }
+.article-body ul { list-style: square; margin-left: 20px; margin-bottom: 1.6em; padding-left: 15px; }
+.article-body li { margin-bottom: 0.9em; padding-left: 5px; }
+.article-body strong { font-weight: 700; color: #000; }
+.article-body em { font-style: italic; color: #444; }
+.article-body p em { display: block; border-top: 2px solid #ddd; padding-top: 1.5em; margin-top: 2.5em; font-size: 1.1rem; color: #555; }
 
-.article-headline {
-    font-family: 'Merriweather', serif;
-    font-size: 2.6rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 0.6em;
-    color: #121212;
-}
+/* --- Article Image Styles --- */
+.article-body figure { margin: 2em 0; clear: both; }
+.article-body figure img { box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); border: 1px solid #eee; transition: opacity 0.4s ease-in-out, transform 0.3s ease; opacity: 1; }
+.article-body figure:hover img { transform: scale(1.02); opacity: 0.95; }
+.article-body figure.image-load-error img { display: none; }
+.article-body figure.image-load-error::before { content: "Image failed to load"; display: block; padding: 2em; text-align: center; background-color: #f5f5f5; border: 1px dashed #ccc; color: #888; font-family: 'Libre Franklin', sans-serif; font-size: 0.9em; }
+.article-body figcaption { font-family: 'Libre Franklin', sans-serif; font-size: 0.8rem; color: #555; padding: 8px 5px 0 5px; line-height: 1.4; text-align: left; }
+.article-body .image-layout-full-width { width: 100%; max-width: 100%; }
+.article-body .image-layout-full-width img { width: 100%; }
+.article-body .image-layout-full-width figcaption { text-align: right; }
+.article-body .image-layout-medium { max-width: 650px; margin-left: auto; margin-right: auto; }
+.article-body .image-layout-medium figcaption { text-align: center; }
+.article-body .image-layout-float-right { float: right; max-width: 48%; margin: 0.5em 0 1em 2em; }
+.article-body .image-layout-float-left { float: left; max-width: 48%; margin: 0.5em 2em 1em 0; }
+@media (max-width: 600px) { .article-body .image-layout-float-right, .article-body .image-layout-float-left { float: none; max-width: 100%; margin: 1.5em auto; } .article-body figcaption { text-align: left !important; } }
 
-.article-subheadline {
-    font-family: 'Libre Franklin', sans-serif;
-    font-size: 1.3rem;
-    color: #555;
-    margin-bottom: 1.5em;
-    line-height: 1.5;
-}
-
-.main-image-container { /* Style for the main image defined in HTML */
-    margin-bottom: 1.5em;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-    padding: 10px 0;
-}
-
-.main-image-container img {
-     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-}
-
-
-.main-image-container figcaption {
-    font-family: 'Libre Franklin', sans-serif;
-    font-size: 0.75rem;
-    color: #777;
-    padding-top: 8px;
-    text-align: right;
-}
-
-.article-meta {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Libre Franklin', sans-serif;
-    font-size: 0.8rem;
-    color: #555;
-    margin-bottom: 2.5em;
-    border-top: 1px solid #e2e2e2;
-    border-bottom: 1px solid #e2e2e2;
-    padding: 12px 0;
-    flex-wrap: wrap;
-}
-
-.author-logo {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    object-fit: cover;
-    flex-shrink: 0;
-    background-color: #eee; /* Background in case image fails */
-}
-
-.author-line, .publish-line {
-    line-height: 1.4;
-}
-.publish-line {
-    margin-left: auto;
-    white-space: nowrap;
-    padding-left: 10px;
-}
-.article-meta span#article-author {
-    font-weight: 700;
-    color: #333;
-}
-
-.article-body {
-    font-family: 'Merriweather', serif;
-    font-size: 1.15rem;
-    line-height: 1.8;
-    color: #222;
-}
-
-.article-body h2 {
-    font-family: 'Libre Franklin', sans-serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    margin-top: 2em;
-    margin-bottom: 1em;
-    line-height: 1.3;
-    color: #121212;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 0.3em;
-}
-
-.article-body p {
-    margin-bottom: 1.6em;
-}
-
-.article-body ul {
-    list-style: square;
-    margin-left: 20px;
-    margin-bottom: 1.6em;
-    padding-left: 15px;
-}
-
-.article-body li {
-    margin-bottom: 0.9em;
-    padding-left: 5px;
-}
-
-.article-body strong {
-     font-weight: 700;
-     color: #000;
-}
-
-.article-body em {
-     font-style: italic;
-     color: #444;
-}
-
-/* Style cho phần conclusion */
-.article-body p em {
-    display: block;
-    border-top: 2px solid #ddd;
-    padding-top: 1.5em;
-    margin-top: 2.5em;
-    font-size: 1.1rem;
-    color: #555;
-}
-
-/* --- Article Image Styles (Images added via JS) --- */
-
-.article-body figure {
-    margin: 2em 0;
-    clear: both;
-}
-.article-body figure img {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border: 1px solid #eee;
-}
-/* Style for broken image placeholders */
-.article-body figure.image-load-error img {
-    display: none; /* Hide broken image icon */
-}
-.article-body figure.image-load-error::before {
-    content: "Image failed to load";
-    display: block;
-    padding: 2em;
-    text-align: center;
-    background-color: #f5f5f5;
-    border: 1px dashed #ccc;
-    color: #888;
-    font-family: 'Libre Franklin', sans-serif;
-    font-size: 0.9em;
-}
-
-
-.article-body figcaption {
-    font-family: 'Libre Franklin', sans-serif;
-    font-size: 0.8rem;
-    color: #555;
-    padding: 8px 5px 0 5px;
-    line-height: 1.4;
-    text-align: left;
-}
-
-/* Layout Classes for Images */
-.article-body .image-layout-full-width {
-    width: 100%;
-    max-width: 100%;
-}
-.article-body .image-layout-full-width img {
-    width: 100%;
-}
-.article-body .image-layout-full-width figcaption {
-     text-align: right;
-}
-
-
-.article-body .image-layout-medium {
-    max-width: 650px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.article-body .image-layout-medium figcaption {
-     text-align: center;
-}
-
-.article-body .image-layout-float-right {
-    float: right;
-    max-width: 48%;
-    margin: 0.5em 0 1em 2em;
-}
-
-.article-body .image-layout-float-left {
-    float: left;
-    max-width: 48%;
-    margin: 0.5em 2em 1em 0;
-}
-
-/* Responsive adjustments for floated images */
-@media (max-width: 600px) {
-    .article-body .image-layout-float-right,
-    .article-body .image-layout-float-left {
-        float: none;
-        max-width: 100%;
-        margin: 1.5em auto;
-    }
-    .article-body figcaption {
-        text-align: left !important;
-    }
-}
-
-
-/* --- Sidebar Styles (Used on Article pages & optionally Homepage) --- */
-.sidebar-column {
-    background-color: #fdfdfd;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    /* border-left and padding-left are in media query */
-}
-
-@media (min-width: 768px) {
-    .sidebar-column {
-         padding-top: 0;
-         padding-bottom: 0;
-    }
-}
-
-.sidebar-section {
-    margin-bottom: 35px;
-}
-
-.sidebar-section h2 {
-    font-family: 'Libre Franklin', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    border-bottom: 2px solid #4a88c7;
-    padding-bottom: 8px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #333;
-}
-
-.sidebar-article {
-    margin-bottom: 20px;
-    display: flex;
-    gap: 15px;
-    align-items: flex-start;
-}
-
-.sidebar-thumbnail {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    flex-shrink: 0;
-    border: 1px solid #eee;
-    background-color: #f0f0f0; /* Placeholder bg */
-}
-
+/* --- Sidebar Styles --- */
+.sidebar-column { background-color: #fdfdfd; padding-top: 20px; padding-bottom: 20px; }
+@media (min-width: 768px) { .sidebar-column { padding-top: 0; padding-bottom: 0; } }
+.sidebar-section { margin-bottom: 35px; }
+.sidebar-section h2 { font-family: 'Libre Franklin', sans-serif; font-size: 1rem; font-weight: 700; border-bottom: 2px solid #4a88c7; padding-bottom: 8px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; color: #333; }
+.sidebar-article { margin-bottom: 20px; display: flex; gap: 15px; align-items: flex-start; transition: background-color 0.2s ease; }
+.sidebar-article:hover { background-color: #f5f5f5; }
+.sidebar-thumbnail { width: 80px; height: 80px; object-fit: cover; flex-shrink: 0; border: 1px solid #eee; background-color: #f0f0f0; }
 .sidebar-article-content { }
-
-.sidebar-article-content h3 {
-    font-family: 'Merriweather', serif;
-    font-size: 1rem;
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 5px;
-}
-.sidebar-article-content h3 a {
-    color: #222;
-}
-.sidebar-article-content h3 a:hover {
-    color: #4a88c7;
-}
-
-
-.sidebar-article-content .meta {
-    font-family: 'Libre Franklin', sans-serif;
-    font-size: 0.7rem;
-    color: #777;
-    text-transform: uppercase;
-    line-height: 1.2;
-}
-
+.sidebar-article-content h3 { font-family: 'Merriweather', serif; font-size: 1rem; font-weight: 700; line-height: 1.3; margin-bottom: 5px; }
+.sidebar-article-content h3 a { color: #222; }
+.sidebar-article-content h3 a:hover { color: #4a88c7; }
+.sidebar-article-content .meta { font-family: 'Libre Franklin', sans-serif; font-size: 0.7rem; color: #777; text-transform: uppercase; line-height: 1.2; }
 
 /* --- Footer Styles --- */
-.nyt-footer {
-    border-top: 1px solid #dcdcdc;
-    padding: 30px 20px;
-    margin-top: 50px;
-    background-color: #f0f0f0;
-    clear: both; /* Ensure footer is below floated elements */
-}
+.nyt-footer { border-top: 1px solid #dcdcdc; padding: 30px 20px; margin-top: 50px; background-color: #f0f0f0; clear: both; }
+.footer-content { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px 25px; font-family: 'Libre Franklin', sans-serif; font-size: 0.8rem; }
+.footer-content a { color: #555; }
+.footer-content a:hover { color: #111; }
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px 25px;
-    font-family: 'Libre Franklin', sans-serif;
-    font-size: 0.8rem;
-}
-
-.footer-content a {
-    color: #555;
-}
-.footer-content a:hover {
-    color: #111;
-}
-
-/* --- START: Styles for Homepage Article List --- */
-
-.main-content-area.homepage {
-    /* Adjust grid if homepage sidebar is different or removed */
-     /* example: grid-template-columns: 1fr; if no sidebar */
-}
-
-.article-list-column {
-    /* Styles for the main column containing the list */
-}
-
-.article-list-column h1 {
-    font-family: 'Libre Franklin', sans-serif;
-    font-size: 2rem;
-    margin-bottom: 1.5em;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 0.5em;
-}
-
-#article-list-container {
-    /* Container for all previews */
-}
-
-.article-preview {
-    border-bottom: 1px solid #eee;
-    padding-bottom: 2em;
-    margin-bottom: 2em;
-}
-
-.article-preview:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-}
-
-.article-preview a h2 { /* Style the linked title */
-    font-family: 'Merriweather', serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #222;
-    margin-bottom: 0.4em;
-    line-height: 1.3;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.article-preview a:hover h2 {
-    color: #4a88c7;
-    text-decoration: underline;
-}
-
-.article-preview p {
-    font-family: 'Libre Franklin', sans-serif;
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 1em;
-}
-
-.article-preview a.read-more {
-    font-family: 'Libre Franklin', sans-serif;
-    font-weight: 700;
-    font-size: 0.9rem;
-    color: #4a88c7;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.article-preview a.read-more:hover {
-    color: #326891;
-    text-decoration: underline;
-}
-
-/* Optional: styles for homepage sidebar */
-.homepage-sidebar {
-    /* Styles specific to the sidebar on the homepage */
-}
-.homepage-sidebar h2 {
-     font-family: 'Libre Franklin', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    border-bottom: 2px solid #ccc; /* Different border for static sidebar */
-    padding-bottom: 8px;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #333;
-}
-.homepage-sidebar p, .homepage-sidebar li {
-    font-family: 'Libre Franklin', sans-serif;
-    font-size: 0.9rem;
-    color: #444;
-    margin-bottom: 0.8em;
-    line-height: 1.5;
-}
-.homepage-sidebar ul {
-    list-style: none;
-    padding-left: 0;
-}
-.homepage-sidebar li a {
-    color: #4a88c7;
-}
-.homepage-sidebar li a:hover {
-    color: #326891;
-}
-
-
-/* --- END: Styles for Homepage Article List --- */
-
+/* --- Homepage Article List Styles --- */
+.main-content-area.homepage { }
+.article-list-column { }
+.article-list-column h1 { font-family: 'Libre Franklin', sans-serif; font-size: 2rem; margin-bottom: 1.5em; border-bottom: 1px solid #ddd; padding-bottom: 0.5em; }
+#article-list-container { }
+.article-preview { border-bottom: 1px solid #eee; padding-bottom: 2em; margin-bottom: 2em; transition: transform 0.25s ease-out, box-shadow 0.25s ease-out; }
+.article-preview:last-child { border-bottom: none; margin-bottom: 0; }
+.article-preview:hover { transform: translateY(-4px); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08); }
+.article-preview a h2 { font-family: 'Merriweather', serif; font-size: 1.6rem; font-weight: 700; color: #222; margin-bottom: 0.4em; line-height: 1.3; text-decoration: none; transition: color 0.2s ease; }
+.article-preview a:hover h2 { color: #4a88c7; text-decoration: underline; }
+.article-preview p { font-family: 'Libre Franklin', sans-serif; font-size: 1rem; color: #555; line-height: 1.6; margin-bottom: 1em; }
+.article-preview a.read-more { font-family: 'Libre Franklin', sans-serif; font-weight: 700; font-size: 0.9rem; color: #4a88c7; text-decoration: none; display: inline-block; }
+.article-preview a.read-more:hover { color: #326891; text-decoration: underline; }
+.homepage-sidebar { }
+.homepage-sidebar h2 { font-family: 'Libre Franklin', sans-serif; font-size: 1rem; font-weight: 700; border-bottom: 2px solid #ccc; padding-bottom: 8px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; color: #333; }
+.homepage-sidebar p, .homepage-sidebar li { font-family: 'Libre Franklin', sans-serif; font-size: 0.9rem; color: #444; margin-bottom: 0.8em; line-height: 1.5; }
+.homepage-sidebar ul { list-style: none; padding-left: 0; }
+.homepage-sidebar li a { color: #4a88c7; }
+.homepage-sidebar li a:hover { color: #326891; }
 
 /* --- Responsive Design Adjustments --- */
 @media (max-width: 767px) {
-    /* Article Page Specific */
-    .article-headline { font-size: 2rem; }
-    .article-subheadline { font-size: 1.1rem; }
-    .article-body { font-size: 1.05rem; }
-
-    /* Header Wrap Fix */
-    .header-top {
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 10px 0;
-     }
-    .center-section {
-        order: -1;
-        width: 100%;
-        margin-bottom: 10px;
-        text-align: center;
-        flex-grow: 0;
-     }
-    .left-section { order: 0; }
-    .right-section { order: 0; margin-left: auto; }
-
+    .article-headline { font-size: 2rem; } .article-subheadline { font-size: 1.1rem; } .article-body { font-size: 1.05rem; }
+    .header-top { flex-wrap: wrap; justify-content: space-between; gap: 10px 0; }
+    .center-section { order: -1; width: 100%; margin-bottom: 10px; text-align: center; flex-grow: 0; }
+    .left-section { order: 0; } .right-section { order: 0; margin-left: auto; }
     .main-nav ul { justify-content: flex-start; }
-
-    /* Article Meta Wrap Fix */
-    .publish-line {
-        margin-left: 0;
-        width: 100%;
-        margin-top: 5px;
-        padding-left: 0;
-        text-align: left;
-    }
+    .publish-line { margin-left: 0; width: 100%; margin-top: 5px; padding-left: 0; text-align: left; }
     .article-meta { gap: 5px 10px; }
-
-     /* Homepage List Specific */
-      .article-list-column h1 { font-size: 1.6rem; }
-      .article-preview a h2 { font-size: 1.4rem; }
-      .article-preview p { font-size: 0.95rem; }
-
+    .article-list-column h1 { font-size: 1.6rem; } .article-preview a h2 { font-size: 1.4rem; } .article-preview p { font-size: 0.95rem; }
 }
-
 @media (max-width: 576px) {
-    .nyt-header, .main-content-area, .nyt-footer {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-    .subscribe-button, .login-button {
-        font-size: 0.7rem;
-        padding: 6px 8px;
-    }
-    .article-headline { font-size: 1.7rem; }
-    .sidebar-thumbnail { width: 60px; height: 60px; }
-     .right-section {
-        flex-grow: 1;
-        justify-content: flex-end;
-     }
-      .article-preview a h2 { font-size: 1.3rem; }
+    .nyt-header, .main-content-area, .nyt-footer { padding-left: 15px; padding-right: 15px; }
+    .subscribe-button, .login-button { font-size: 0.7rem; padding: 6px 8px; }
+    .article-headline { font-size: 1.7rem; } .sidebar-thumbnail { width: 60px; height: 60px; }
+    .right-section { flex-grow: 1; justify-content: flex-end; }
+    .article-preview a h2 { font-size: 1.3rem; }
 }
 
-/* --- END OF FILE style.css (FINAL VERSION) --- */
+/* --- END OF FILE style.css (FINAL + EFFECTS) --- */
