@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FPT SAY HI - Articles</title> <!-- Updated Title -->
+     <!-- Title will be set dynamically if needed, or set manually -->
+    <title>FPT SAY HI - Spending Habits</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
-<body>
+<!-- IMPORTANT: Add data attribute pointing to the correct content file -->
+<body data-content-file="content-spending.json">
     <header class="nyt-header">
         <div class="header-top">
             <div class="left-section">
-                <button class="menu-button">☰</button>
+                 <!-- Link back to homepage -->
+                 <a href="index.html" class="menu-button" aria-label="Back to homepage">←</a>
                 <span id="current-date">Tuesday, April 22, 2025</span>
             </div>
             <div class="center-section">
                 <!-- Site Logo -->
-                <img src="images/fpt-logo.png" alt="FPT SAY HI Logo" class="site-logo">
+                 <a href="index.html"><img src="images/fpt-logo.png" alt="FPT SAY HI Logo" class="site-logo"></a>
             </div>
             <div class="right-section">
-                <!-- Keep buttons if desired on homepage -->
                 <button class="subscribe-button">SUBSCRIBE FOR $1/WEEK</button>
                 <button class="login-button">LOG IN</button>
             </div>
         </div>
         <nav class="main-nav">
-             <!-- Keep navigation if desired -->
-            <ul>
+             <ul>
                 <li><a href="#">U.S.</a></li>
                 <li><a href="#">World</a></li>
                 <li><a href="#">Business</a></li>
@@ -44,30 +45,34 @@
         </nav>
     </header>
 
-    <!-- Main area now lists articles -->
-    <div class="main-content-area homepage">
-        <main class="article-list-column">
-            <h1>Latest Articles</h1>
-            <div id="article-list-container">
-                <!-- Article previews will be loaded here by index-script.js -->
-                <p>Loading articles...</p>
-            </div>
+    <div class="main-content-area">
+        <main class="article-column">
+            <article>
+                <h1 id="article-headline" class="article-headline"></h1>
+                <p id="article-subheadline" class="article-subheadline"></p>
+
+                <figure class="main-image-container">
+                    <img id="article-image" src="" alt="Main article image">
+                    <figcaption id="article-image-caption"></figcaption>
+                </figure>
+
+                <!-- Article Meta Data -->
+                <div class="article-meta">
+                    <img id="author-logo" class="author-logo" src="images/fpt-group-logo.png" alt="Author logo">
+                    <span class="author-line">By <span id="article-author">FPT SAY HI GR4</span></span>
+                    <span class="publish-line">Published <span id="article-publish-date"></span></span>
+                </div>
+
+                <div id="article-body" class="article-body">
+                    <!-- Article content will be loaded here by script.js -->
+                </div>
+            </article>
         </main>
-        <!-- Optional: Keep sidebar on homepage? Remove if not needed -->
-        <aside class="sidebar-column homepage-sidebar">
-            <div class="sidebar-section">
-                 <h2>About Us</h2>
-                 <p>Welcome to FPT SAY HI. Explore our latest articles.</p>
-                 <!-- Add more static sidebar content if needed -->
-            </div>
-             <div class="sidebar-section">
-                 <h2>Popular Topics</h2>
-                 <ul>
-                    <li><a href="#">Technology</a></li>
-                    <li><a href="#">Family Finance</a></li>
-                    <li><a href="#">Space Exploration</a></li>
-                 </ul>
-            </div>
+
+        <aside class="sidebar-column">
+             <!-- Sidebar content will be loaded here by script.js -->
+            <div class="sidebar-section" id="sidebar-related"></div>
+            <div class="sidebar-section" id="sidebar-opinion"></div>
         </aside>
     </div>
 
@@ -82,7 +87,7 @@
         </div>
     </footer>
 
-    <!-- Link to NEW JavaScript file for the index page -->
-    <script src="index-script.js"></script>
+     <!-- Link to the MODIFIED script.js for article pages -->
+    <script src="script.js"></script>
 </body>
 </html>

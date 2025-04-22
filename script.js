@@ -1,86 +1,132 @@
-// --- START OF FILE script.js (FETCHING NEW ARTICLE) ---
+// --- START OF FILE script.js (MODIFIED FOR ARTICLE PAGES) ---
 
 document.addEventListener('DOMContentLoaded', function() {
-    // !!! IMPORTANT: Fetch the JSON file for the desired article !!!
-    fetch('content-spending.json') // <--- Fetches the NEW spending article content
-    // fetch('content.json') // <--- Change back to this to see the Moon Landing article
-    // !!! ------------------------------------------------------- !!!
+    // --- Get the content file name from the body's data attribute ---
+    const contentFileName = document.body.dataset.contentFile;
+
+    if (!contentFileName) {
+        console.error('Error: Body tag missing data-content-file attribute.');
+        const articleBody = document.getElementById('article-body');
+         if(articleBody) {
+            articleBody.innerHTML = `<p style="color: red; font-family: sans-serif;">Error: Page configuration missing.</p>`;
+         }
+        return; // Stop if the attribute is missing
+    }
+    // --- -------------------------------------------------------- ---
+
+    // Use the dynamic file name in fetch
+    fetch(contentFileName)
         .then(response => {
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                 // Provide more specific error if file not found
+                 const statusText = response.status === 404 ? `(${contentFileName} not found)` : `(status: ${response.status})`;
+                throw new Error(`HTTP error! ${statusText}`);
             }
             return response.json();
         })
         .then(data => {
-            populateArticle(data.article);
-            populateSidebar(data.sidebar);
+            // Check if data has the expected 'article' structure
+            if (data && data.article) {
+                populateArticle(data.article);
+                 // Only populate sidebar if sidebar data exists
+                 if (data.sidebar) {
+                     populateSidebar(data.sidebar);
+                 } else {
+                     // Optionally hide sidebar area if no data
+                     const sidebar = document.querySelector('.sidebar-column');
+                     if(sidebar) sidebar.style.display = 'none';
+                 }
+            } else {
+                 throw new Error(`Invalid content structure in ${contentFileName}`);
+            }
         })
         .catch(error => {
             console.error('Error loading content:', error);
             const articleBody = document.getElementById('article-body');
             if(articleBody) {
-                articleBody.innerHTML = `<p style="color: red; font-family: sans-serif;">Sorry, couldn't load the article content. Please try refreshing the page.</p>`;
-                 console.error("Failed to fetch or parse JSON. Status:", error.message);
+                articleBody.innerHTML = `<p style="color: red; font-family: sans-serif;">Sorry, couldn't load the article content. ${error.message}</p>`;
             }
         });
 });
 
+// --- Functions populateArticle, createFigureElement, populateSidebar, setTextContent remain the same as the previous version ---
 function populateArticle(articleData) {
+    // Set page title dynamically from article headline
+    document.title = articleData.headline ? `${articleData.headline} - FPT SAY HI` : "FPT SAY HI";
+
     setTextContent('article-headline', articleData.headline);
     setTextContent('article-subheadline', articleData.subheadline);
-    setTextContent('article-publish-date', articleData.publishDate);
+    setTextContent('article-publish-date', articleData.publishDate); // Ensure publish date element exists if used
 
     const mainImgElement = document.getElementById('article-image');
     if (mainImgElement && articleData.mainImageUrl) {
         mainImgElement.src = articleData.mainImageUrl;
         mainImgElement.alt = articleData.headline || "Main article image";
+        mainImgElement.style.display = ''; // Ensure it's visible
     } else if (mainImgElement) {
-         mainImgElement.style.display = 'none';
+         mainImgElement.style.display = 'none'; // Hide if no image URL
     }
     setTextContent('article-image-caption', articleData.mainImageCaption);
 
-    // Author logo is set in HTML, no need to handle here unless dynamic
+    // Handle Author - Assuming 'article-author' span is for the name part
+    const authorNameSpan = document.getElementById('article-author');
+    if(authorNameSpan && articleData.author) {
+         authorNameSpan.textContent = articleData.author;
+    }
+
 
     const articleBody = document.getElementById('article-body');
-    if (!articleBody) return;
-    articleBody.innerHTML = '';
+    if (!articleBody) {
+         console.error("Element with ID 'article-body' not found!");
+         return;
+     }
+    articleBody.innerHTML = ''; // Clear any previous content or error messages
+
+    if (!articleData.sections || !Array.isArray(articleData.sections)) {
+        console.error("Invalid or missing 'sections' array in article data.");
+        articleBody.innerHTML = "<p style='color:orange;'>Article content is missing or formatted incorrectly.</p>";
+        return;
+    }
+
 
     articleData.sections.forEach(section => {
         let element;
+        // Ensure section is an object and has a type
+        if (typeof section !== 'object' || !section.type) {
+             console.warn("Skipping invalid section:", section);
+             return; // Skip this iteration
+         }
+
         switch (section.type) {
             case 'heading':
                 element = document.createElement(`h${section.level || 2}`);
-                element.textContent = section.text;
+                element.textContent = section.text || '';
                 break;
             case 'paragraph':
                 element = document.createElement('p');
-                // Replace **bold** markdown with <strong> tags
-                element.innerHTML = section.text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                element.innerHTML = (section.text || '').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
                 break;
             case 'list':
-                element = document.createElement('ul');
-                section.items.forEach(item => {
-                    // Ensure only strings are processed as list items here
-                    // Image objects should be outside the 'items' array in JSON
-                    if (typeof item === 'string') {
-                         const listItem = document.createElement('li');
-                         listItem.innerHTML = item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                         element.appendChild(listItem);
-                    }
-                });
+                 element = document.createElement('ul');
+                 if (section.items && Array.isArray(section.items)) {
+                     section.items.forEach(item => {
+                         if (typeof item === 'string') {
+                              const listItem = document.createElement('li');
+                              listItem.innerHTML = item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                              element.appendChild(listItem);
+                          }
+                     });
+                 }
                 break;
-            case 'image': // Handle image type
+            case 'image':
                 element = createFigureElement(section);
                 break;
              case 'conclusion':
                  element = document.createElement('p');
-                 // Wrap content in <em> for styling hook
-                 element.innerHTML = `<em>${section.text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</em>`;
+                 element.innerHTML = `<em>${(section.text || '').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</em>`;
                  break;
             default:
                 console.warn('Unknown section type:', section.type);
-                element = document.createElement('p');
-                element.textContent = section.text || '';
         }
         if (element) {
             articleBody.appendChild(element);
@@ -88,7 +134,6 @@ function populateArticle(articleData) {
     });
 }
 
-// --- Helper function to create figure element for images ---
 function createFigureElement(imageData) {
     const figure = document.createElement('figure');
     if (imageData.layout) {
@@ -96,8 +141,17 @@ function createFigureElement(imageData) {
     }
 
     const img = document.createElement('img');
-    img.src = imageData.src;
-    img.alt = imageData.alt || ""; // Provide empty alt if not specified
+    img.src = imageData.src || ''; // Use empty src if missing
+    img.alt = imageData.alt || "";
+
+    // Add error handling for image loading
+     img.onerror = () => {
+         console.warn(`Failed to load image: ${img.src}`);
+         img.alt = `Failed to load image: ${imageData.alt || imageData.src}`;
+         // Optionally add a class to style broken images
+         img.parentElement.classList.add('image-load-error');
+     };
+
 
     figure.appendChild(img);
 
@@ -109,49 +163,55 @@ function createFigureElement(imageData) {
     return figure;
 }
 
-
-// --- Function to populate sidebar (using placeholder image) ---
 function populateSidebar(sidebarData) {
     const relatedContainer = document.getElementById('sidebar-related');
-    if (relatedContainer && sidebarData.relatedArticles) {
+    if (relatedContainer && sidebarData.relatedArticles && sidebarData.relatedArticles.length > 0) {
+         relatedContainer.style.display = ''; // Ensure visible
         relatedContainer.innerHTML = `<h2>${sidebarData.relatedTitle || 'Related'}</h2>`;
         sidebarData.relatedArticles.forEach(article => {
             const div = document.createElement('div');
             div.classList.add('sidebar-article');
+            const imgSrc = 'images/placeholder-thumb.png';
             div.innerHTML = `
-                <img class="sidebar-thumbnail" src="images/placeholder-thumb.png" alt="">
+                <img class="sidebar-thumbnail" src="${imgSrc}" alt="">
                 <div class="sidebar-article-content">
-                    <h3><a href="#">${article.title}</a></h3>
-                    <p class="meta">${article.readTime}</p>
+                    <h3><a href="#">${article.title || 'Untitled'}</a></h3>
+                    <p class="meta">${article.readTime || ''}</p>
                 </div>
             `;
             relatedContainer.appendChild(div);
         });
+    } else if (relatedContainer) {
+        relatedContainer.style.display = 'none'; // Hide section if no data
     }
 
+
      const opinionContainer = document.getElementById('sidebar-opinion');
-    if (opinionContainer && sidebarData.opinionArticles) {
+    if (opinionContainer && sidebarData.opinionArticles && sidebarData.opinionArticles.length > 0) {
+         opinionContainer.style.display = ''; // Ensure visible
         opinionContainer.innerHTML = `<h2>${sidebarData.opinionTitle || 'Opinion'}</h2>`;
          sidebarData.opinionArticles.forEach(article => {
             const div = document.createElement('div');
             div.classList.add('sidebar-article');
-            div.innerHTML = `
-                <img class="sidebar-thumbnail" src="images/placeholder-thumb.png" alt="">
+             const imgSrc = 'images/placeholder-thumb.png';
+             div.innerHTML = `
+                <img class="sidebar-thumbnail" src="${imgSrc}" alt="">
                 <div class="sidebar-article-content">
-                    <h3><a href="#">${article.title}</a></h3>
-                    <p class="meta">By ${article.author} • ${article.readTime}</p>
+                    <h3><a href="#">${article.title || 'Untitled'}</a></h3>
+                    <p class="meta">By ${article.author || 'Unknown'} • ${article.readTime || ''}</p>
                 </div>
             `;
             opinionContainer.appendChild(div);
         });
-    }
+    } else if (opinionContainer) {
+         opinionContainer.style.display = 'none'; // Hide section if no data
+     }
 }
 
-// Helper function to set text content safely
 function setTextContent(id, text) {
     const element = document.getElementById(id);
     if (element) {
         element.textContent = text || '';
     }
 }
-// --- END OF FILE script.js (FETCHING NEW ARTICLE) ---
+// --- END OF FILE script.js (MODIFIED FOR ARTICLE PAGES) ---

@@ -1,0 +1,18 @@
+[
+    {
+      "id": "spending-habits",
+      "title": "Level Up Your Savings, Not Just Your Gear 🎮💸",
+      "description": "When expensive tech hobbies clash with the family budget. How to balance personal passions and shared financial goals?",
+      "pageUrl": "article-spending.html",
+      "contentFile": "content-spending.json",
+      "publishDate": "2025-04-22"
+    },
+    {
+      "id": "moon-landing-hoax",
+      "title": "The Moon Landing Hoax Theory 🌕🚀",
+      "description": "Decades after Apollo 11, the shadow of doubt lingers. Why do some believe humanity never reached the lunar surface?",
+      "pageUrl": "article-moon-landing.html",
+      "contentFile": "content-moon-landing.json",
+      "publishDate": "2025-04-21"
+    }
+  ]

@@ -1,4 +1,4 @@
-/* --- START OF FILE style.css (ENHANCED & FIXED + IMAGE STYLES) --- */
+/* --- START OF FILE style.css (FINAL VERSION) --- */
 
 /* --- General Reset & Base Styles --- */
 * {
@@ -41,12 +41,12 @@ img {
 }
 
 .header-top {
-    display: flex; /* Quan trọng để xếp hàng ngang */
-    justify-content: space-between; /* Đẩy các phần tử ra xa nhau */
-    align-items: center; /* Căn giữa theo chiều dọc */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px 0;
-    max-width: 1200px; /* Giới hạn chiều rộng nội dung header */
-    margin: 0 auto; /* Căn giữa header */
+    max-width: 1200px;
+    margin: 0 auto;
     min-height: 60px;
 }
 
@@ -54,21 +54,39 @@ img {
     display: flex;
     align-items: center;
     gap: 15px;
-    flex-shrink: 0; /* Ngăn co lại khi không đủ chỗ */
+    flex-shrink: 0;
 }
+/* Make back button slightly different */
+.left-section > a.menu-button {
+    font-size: 1.5rem;
+    padding: 5px;
+    text-decoration: none;
+    color: #333;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.left-section > a.menu-button:hover {
+     color: #4a88c7;
+}
+
 
 .center-section {
-    text-align: center; /* Căn giữa logo */
-    flex-grow: 1; /* Cho phép chiếm không gian thừa */
+    text-align: center;
+    flex-grow: 1;
 }
 
-/* Style cho logo */
 .site-logo {
-    max-height: 40px; /* Giới hạn chiều cao logo */
-    width: auto;      /* Chiều rộng tự động */
-    display: inline-block; /* Để không chiếm toàn bộ chiều rộng */
-    vertical-align: middle; /* Căn giữa với text/button nếu cần */
+    max-height: 40px;
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
 }
+/* Ensure logo link has no underline */
+.center-section a:hover {
+    text-decoration: none;
+}
+
 
 .menu-button, .subscribe-button, .login-button {
     font-family: 'Libre Franklin', sans-serif;
@@ -82,7 +100,7 @@ img {
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.menu-button {
+.menu-button { /* Style for the hamburger menu icon */
     font-size: 1.5rem;
     padding: 5px;
 }
@@ -119,11 +137,11 @@ img {
 
 .main-nav ul {
     list-style: none;
-    display: flex; /* Quan trọng để menu nằm ngang */
+    display: flex;
     justify-content: center;
     padding: 10px 0;
     gap: 25px;
-    overflow-x: auto; /* Cho phép cuộn ngang nếu không đủ chỗ */
+    overflow-x: auto;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -157,9 +175,13 @@ img {
 
 @media (min-width: 768px) {
     .main-content-area {
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 2fr 1fr; /* Default for article pages */
         gap: 50px;
     }
+     .main-content-area.homepage { /* Override for homepage if needed */
+         grid-template-columns: 2fr 1fr; /* Keep sidebar for homepage too */
+     }
+
     .sidebar-column {
         border-left: 1px solid #e9e9e9;
         padding-left: 50px;
@@ -167,7 +189,7 @@ img {
 }
 
 
-/* --- Article Styles --- */
+/* --- Article Page Styles --- */
 .article-column { }
 
 .article-headline {
@@ -207,7 +229,6 @@ img {
     text-align: right;
 }
 
-/* Style cho khu vực meta tác giả */
 .article-meta {
     display: flex;
     align-items: center;
@@ -228,15 +249,16 @@ img {
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
+    background-color: #eee; /* Background in case image fails */
 }
 
 .author-line, .publish-line {
     line-height: 1.4;
 }
 .publish-line {
-    margin-left: auto; /* Đẩy ngày publish sang phải */
+    margin-left: auto;
     white-space: nowrap;
-    padding-left: 10px; /* Thêm khoảng cách nhỏ nếu xuống dòng */
+    padding-left: 10px;
 }
 .article-meta span#article-author {
     font-weight: 700;
@@ -302,11 +324,26 @@ img {
 
 .article-body figure {
     margin: 2em 0;
-    clear: both; /* Ensure figure takes up space correctly after floats */
+    clear: both;
 }
 .article-body figure img {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border: 1px solid #eee;
+}
+/* Style for broken image placeholders */
+.article-body figure.image-load-error img {
+    display: none; /* Hide broken image icon */
+}
+.article-body figure.image-load-error::before {
+    content: "Image failed to load";
+    display: block;
+    padding: 2em;
+    text-align: center;
+    background-color: #f5f5f5;
+    border: 1px dashed #ccc;
+    color: #888;
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 0.9em;
 }
 
 
@@ -353,14 +390,6 @@ img {
     margin: 0.5em 2em 1em 0;
 }
 
-/* Clearfix for elements potentially following floats */
-.article-body h2,
-.article-body p:not(:has(>em)), /* Don't clear conclusion para */
-.article-body ul,
-.article-body ol {
-    /* clear: both; */ /* Uncomment only if layout breaks after floats */
-}
-
 /* Responsive adjustments for floated images */
 @media (max-width: 600px) {
     .article-body .image-layout-float-right,
@@ -370,12 +399,12 @@ img {
         margin: 1.5em auto;
     }
     .article-body figcaption {
-        text-align: left !important; /* Force left align on small screens */
+        text-align: left !important;
     }
 }
 
 
-/* --- Sidebar Styles --- */
+/* --- Sidebar Styles (Used on Article pages & optionally Homepage) --- */
 .sidebar-column {
     background-color: #fdfdfd;
     padding-top: 20px;
@@ -387,7 +416,6 @@ img {
     .sidebar-column {
          padding-top: 0;
          padding-bottom: 0;
-         /* border-left and padding-left are already set */
     }
 }
 
@@ -420,6 +448,7 @@ img {
     object-fit: cover;
     flex-shrink: 0;
     border: 1px solid #eee;
+    background-color: #f0f0f0; /* Placeholder bg */
 }
 
 .sidebar-article-content { }
@@ -454,6 +483,7 @@ img {
     padding: 30px 20px;
     margin-top: 50px;
     background-color: #f0f0f0;
+    clear: both; /* Ensure footer is below floated elements */
 }
 
 .footer-content {
@@ -474,38 +504,155 @@ img {
     color: #111;
 }
 
+/* --- START: Styles for Homepage Article List --- */
+
+.main-content-area.homepage {
+    /* Adjust grid if homepage sidebar is different or removed */
+     /* example: grid-template-columns: 1fr; if no sidebar */
+}
+
+.article-list-column {
+    /* Styles for the main column containing the list */
+}
+
+.article-list-column h1 {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1.5em;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5em;
+}
+
+#article-list-container {
+    /* Container for all previews */
+}
+
+.article-preview {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 2em;
+    margin-bottom: 2em;
+}
+
+.article-preview:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.article-preview a h2 { /* Style the linked title */
+    font-family: 'Merriweather', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 0.4em;
+    line-height: 1.3;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.article-preview a:hover h2 {
+    color: #4a88c7;
+    text-decoration: underline;
+}
+
+.article-preview p {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+
+.article-preview a.read-more {
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #4a88c7;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.article-preview a.read-more:hover {
+    color: #326891;
+    text-decoration: underline;
+}
+
+/* Optional: styles for homepage sidebar */
+.homepage-sidebar {
+    /* Styles specific to the sidebar on the homepage */
+}
+.homepage-sidebar h2 {
+     font-family: 'Libre Franklin', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    border-bottom: 2px solid #ccc; /* Different border for static sidebar */
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #333;
+}
+.homepage-sidebar p, .homepage-sidebar li {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: 0.8em;
+    line-height: 1.5;
+}
+.homepage-sidebar ul {
+    list-style: none;
+    padding-left: 0;
+}
+.homepage-sidebar li a {
+    color: #4a88c7;
+}
+.homepage-sidebar li a:hover {
+    color: #326891;
+}
+
+
+/* --- END: Styles for Homepage Article List --- */
+
 
 /* --- Responsive Design Adjustments --- */
 @media (max-width: 767px) {
+    /* Article Page Specific */
     .article-headline { font-size: 2rem; }
     .article-subheadline { font-size: 1.1rem; }
     .article-body { font-size: 1.05rem; }
 
-    /* Fix header wrap */
+    /* Header Wrap Fix */
     .header-top {
         flex-wrap: wrap;
-        justify-content: space-between; /* Cố gắng giữ khoảng cách */
-        gap: 10px 0; /* Thêm gap dọc khi wrap */
+        justify-content: space-between;
+        gap: 10px 0;
      }
     .center-section {
-        order: -1; /* Logo lên đầu */
-        width: 100%; /* Chiếm hết chiều rộng */
-        margin-bottom: 10px; /* Khoảng cách dưới logo */
-        text-align: center; /* Đảm bảo logo căn giữa */
-        flex-grow: 0; /* Reset flex-grow */
+        order: -1;
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+        flex-grow: 0;
      }
     .left-section { order: 0; }
     .right-section { order: 0; margin-left: auto; }
 
     .main-nav ul { justify-content: flex-start; }
+
+    /* Article Meta Wrap Fix */
     .publish-line {
-        margin-left: 0; /* Reset margin khi xuống dòng */
-        width: 100%; /* Chiếm hết dòng */
-        margin-top: 5px; /* Thêm khoảng cách khi xuống dòng */
-        padding-left: 0; /* Reset padding */
-        text-align: left; /* Căn trái ngày */
+        margin-left: 0;
+        width: 100%;
+        margin-top: 5px;
+        padding-left: 0;
+        text-align: left;
     }
     .article-meta { gap: 5px 10px; }
+
+     /* Homepage List Specific */
+      .article-list-column h1 { font-size: 1.6rem; }
+      .article-preview a h2 { font-size: 1.4rem; }
+      .article-preview p { font-size: 0.95rem; }
+
 }
 
 @media (max-width: 576px) {
@@ -523,6 +670,7 @@ img {
         flex-grow: 1;
         justify-content: flex-end;
      }
+      .article-preview a h2 { font-size: 1.3rem; }
 }
 
-/* --- END OF FILE style.css (ENHANCED & FIXED + IMAGE STYLES) --- */
+/* --- END OF FILE style.css (FINAL VERSION) --- */
